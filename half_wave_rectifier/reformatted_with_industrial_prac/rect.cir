@@ -1,0 +1,17 @@
+* Title : Half Wave rectifier
+* Analysis : Transient analysis
+
+* If a control command is placed out of the .control .endc block then it must be preceeded by .
+* Example : .op , .trans 1us 40ms uic
+.tran 1us 40ms uic
+
+.include comp.net
+
+* Control commands
+.control
+* Transient analysis with step value 1us and end at 40 ms use initial conditions
+set color0 = white ; set background as white
+set color1 = black ; set foreground as black 
+run
+plot v(a) v(b)
+.endc

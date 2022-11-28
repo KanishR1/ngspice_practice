@@ -1,0 +1,25 @@
+* Title : Half Wave rectifier
+* Analysis : Transient analysis
+
+* If a control command is placed out of the .control .endc block then it must be preceeded by .
+* Example : .op , .trans 1us 40ms uic
+
+* Netlist
+* sin (0 100 50 0 0 ) -> Sine wave with 0 offset 100v peak value 50Hz 0 delay 0 decay
+V1 a 0 sin(0 100 50 0 0)
+* D1 anode cathode
+D1 a c dmodel
+R1 c b 10
+R2 b 0 10
+
+* Model
+* D() -> Diode with default parameters i.e. default model. We can change by giving values in the parantheses
+.model dmodel D()
+
+* Control commands
+.control
+* Transient analysis with step value 1us and end at 40 ms use initial conditions
+run
+tran 1us 40ms uic
+plot v(a) v(b)
+.endc

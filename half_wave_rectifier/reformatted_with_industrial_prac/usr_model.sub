@@ -1,0 +1,3 @@
+* Model & Subcircuits
+* D() -> Diode with default parameters i.e. default model. We can change by giving values in the parantheses
+.model dmodel D()
