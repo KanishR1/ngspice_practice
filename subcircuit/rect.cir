@@ -1,0 +1,10 @@
+* Title : Half wave rectifier
+
+.include comp.net
+
+.tran 1us 40ms uic
+* Control commands
+.control
+    run
+    plot v(a) v(b)
+.endc

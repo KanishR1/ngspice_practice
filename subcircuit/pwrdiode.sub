@@ -1,0 +1,10 @@
+* Power Diode Subcircuit
+* Subcircuit
+.subckt pwrdiode A K
+    DX A K dmod
+    RX A M 10k
+    CX M K 0.01uF
+.ends
+
+* Model
+.model dmod D(Rs=0.01, CJO = 100pF)
